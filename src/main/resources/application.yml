@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: Digital-Wallet
+  profiles:
+    active: dev
+
+server:
+  port: 8080
