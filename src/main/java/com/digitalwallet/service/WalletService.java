@@ -37,7 +37,7 @@ private final WalletRepository walletRepository;
     }
 
     public List<Wallet> getWalletsByUser(Integer userId) {
-        return walletRepository.findByUserUserId(userId);
+        return walletRepository.findByUserId(userId);
     }
 
     public BigDecimal getWalletBalance(Integer walletId) {

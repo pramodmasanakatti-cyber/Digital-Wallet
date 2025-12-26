@@ -70,15 +70,16 @@ public class Transaction {
         this.transactionDate = transactionDate;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "Sender_wallet_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Sender_wallet_id",nullable = false)
     private Wallet senderWallet;
 
-    @ManyToOne
-    @JoinColumn(name = "Receiver_wallet_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "Receiver_wallet_id",nullable = false)
     private Wallet receiverWallet;
 
     @Enumerated(EnumType.STRING)
+    @Column(name="Statuss")
     private TransactionStatus status;
 
     private LocalDateTime transactionDate;

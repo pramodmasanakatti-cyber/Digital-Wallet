@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.security.PrivateKey;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -67,5 +68,14 @@ public class User {
 
     private LocalDateTime createdAt;
 
+    @OneToMany(mappedBy = "user",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Wallet> wallets=new ArrayList<>();
 
+    public List<Wallet> getWallets() {
+        return wallets;
+    }
+
+    public void setWallets(List<Wallet> wallets) {
+        this.wallets = wallets;
+    }
 }

@@ -6,6 +6,8 @@ import jakarta.validation.constraints.DecimalMin;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Wallets")
@@ -69,4 +71,27 @@ public class Wallet {
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    public List<Transaction> getSentTransactions() {
+        return sentTransactions;
+    }
+
+    public void setSentTransactions(List<Transaction> sentTransactions) {
+        this.sentTransactions = sentTransactions;
+    }
+
+    public List<Transaction> getReceivedTransaction() {
+        return receivedTransaction;
+    }
+
+    public void setReceivedTransaction(List<Transaction> receivedTransaction) {
+        this.receivedTransaction = receivedTransaction;
+    }
+
+    @OneToMany(mappedBy = "senderWallet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Transaction> sentTransactions=new ArrayList<>();
+
+    @OneToMany(mappedBy = "receiverWallet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private  List<Transaction> receivedTransaction=new ArrayList<>();
+
 }
