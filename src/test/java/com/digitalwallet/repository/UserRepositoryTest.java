@@ -23,7 +23,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    public void testFIndFullNameContaining() {
+    public void testFindFullNameContaining() {
         assertEquals(2,userRepository.findByFullNameContaining("Bob").size());
     }
 
@@ -38,8 +38,7 @@ class UserRepositoryTest {
         user.setFullName("Pramod");
         user.setPhone("123");
         user.setEmail("pramod@gmail.com");
-        userRepository.save(user);
-        assertNotNull(user.getUserId());
+        assertNotNull(userRepository.save(user));
     }
 
     @Test

@@ -10,9 +10,11 @@ description = 'Digital Wallet Project'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
+
+
 
 repositories {
     mavenCentral()
@@ -27,7 +29,16 @@ dependencies {
 
     // Tests
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.junit.platform:junit-platform-launcher:1.10.0' // add this
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.10.0'
+
+    // MapStruct
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 
 test {
