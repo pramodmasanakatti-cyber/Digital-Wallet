@@ -37,8 +37,9 @@ dependencies {
 
 
     // Lombok
-    compileOnly 'org.projectlombok:lombok:1.18.28'
-    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    implementation 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
 }
 
 test {
@@ -47,4 +48,7 @@ test {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+tasks.withType(JavaCompile) {
+    options.annotationProcessorPath = configurations.annotationProcessor
 }

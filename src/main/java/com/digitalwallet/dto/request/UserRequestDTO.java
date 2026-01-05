@@ -1,39 +1,34 @@
 package com.digitalwallet.dto.request;
 
+import com.digitalwallet.validation.annotation.ValidUserAge;
+import com.digitalwallet.validation.groups.Create;
+import com.digitalwallet.validation.groups.Update;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserRequestDTO {
+    @NotNull(groups = Update.class)
+    private Integer userId;
+
+
+    @NotNull(groups = {Create.class, Update.class})
     private String fullName;
-    @Email
-    @NotBlank
+
+    @Email(message = "Invalid email format")
+    @NotBlank(message = "Email should not be blank",groups = {Create.class, Update.class})
     private String email;
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    @NotNull(groups = Create.class)
     private String phone;
+
+    @NotNull(groups = Create.class)
+    @ValidUserAge
+    private  Integer age;
 }

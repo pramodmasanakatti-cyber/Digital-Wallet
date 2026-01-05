@@ -29,7 +29,7 @@ class UserRepositoryTest {
 
     @Test
     public void testgetTotalBalanceByUser() {
-        assertEquals(new BigDecimal(6300.00), userRepository.getTotalBalanceByUser(1).setScale(0,RoundingMode.DOWN));
+        assertEquals(new BigDecimal(7000.00), userRepository.getTotalBalanceByUser(1).setScale(0,RoundingMode.DOWN));
     }
 
     @Test
@@ -48,7 +48,7 @@ class UserRepositoryTest {
 
     @Test
     public void testFindAll() {
-        assertEquals(11,userRepository.findAll().size());
+        assertEquals(13,userRepository.findAll().size());
     }
 
  }

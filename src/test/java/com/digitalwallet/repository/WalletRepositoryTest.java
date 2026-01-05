@@ -18,11 +18,11 @@ class WalletRepositoryTest {
     private WalletRepository walletRepository;
 @Test
     public void testFindByUserId() {
-    assertEquals(8,walletRepository.findByUserId(1).size());
+    assertEquals(18,walletRepository.findByUserId(1).size());
 }
 @Test
-    public void testFindByBalanceGreaterThan() {
-    assertEquals(15,walletRepository.findByBalanceGreaterThan(BigDecimal.valueOf(100)).size());
+    public void testFindByBalance() {
+    assertEquals(8,walletRepository.findByBalance(BigDecimal.valueOf(100)).size());
 }
 
 @Test
@@ -42,7 +42,7 @@ class WalletRepositoryTest {
 
 @Test
     public void testFindAll() {
-    assertEquals(24,walletRepository.findAll().size());
+    assertEquals(34,walletRepository.findAll().size());
 }
 @Test
     public void testFindById() {

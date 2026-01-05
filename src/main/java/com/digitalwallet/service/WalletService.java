@@ -1,6 +1,6 @@
 package com.digitalwallet.service;
 
-import com.digitalwallet.dto.reqsponse.WalletResponseDTO;
+import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
 import com.digitalwallet.entity.User;
 import com.digitalwallet.entity.Wallet;
@@ -9,12 +9,13 @@ import com.digitalwallet.exception.WalletNotFoundException;
 import com.digitalwallet.mapper.WalletMapper;
 import com.digitalwallet.repository.UserRepository;
 import com.digitalwallet.repository.WalletRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 
+@Slf4j
 @Service
 public class WalletService {
 private final WalletRepository walletRepository;
@@ -28,14 +29,13 @@ private final WalletMapper walletMapper;
     private final UserRepository userRepository;
 
     public WalletResponseDTO createWallet(WalletRequestDTO walletDto) {
-        User user=userRepository.findById(walletDto.getUserId()).orElseThrow(()-> new UserNotFoundException("User not found with the id: " + walletDto.getUserId()));
-        Wallet wallet=new Wallet();
-        wallet.setWalletType(walletDto.getWalletType());
-        wallet.setUser(user);
-        wallet.setBalance(BigDecimal.ZERO);
-        wallet.setCreatedAt(LocalDateTime.now());
 
+        User user=userRepository.findById(walletDto.getUserId()).orElseThrow(()-> new UserNotFoundException("User not found with the id: " + walletDto.getUserId()));
+        log.debug("Mapping WalletRequestDTO to Wallet entity: {}",walletDto);
+        Wallet wallet=walletMapper.toEntity(walletDto,user);
+        log.debug("Saving Wallet entity: {}",wallet);
         Wallet saved=walletRepository.save(wallet);
+        log.info("Wallet saved successfully with wallletId={}",saved.getWalletId());
         return walletMapper.toResponseDTO(saved);
     }
 

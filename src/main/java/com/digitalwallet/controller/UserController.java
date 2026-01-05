@@ -1,13 +1,17 @@
 package com.digitalwallet.controller;
 
-import com.digitalwallet.dto.reqsponse.UserResponseDTO;
+import com.digitalwallet.dto.response.UserResponseDTO;
 import com.digitalwallet.dto.request.UserRequestDTO;
-import com.digitalwallet.repository.UserRepository;
 import com.digitalwallet.service.UserService;
+import com.digitalwallet.validation.groups.Create;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -19,8 +23,11 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponseDTO> registerUser(@RequestBody UserRequestDTO userDto) {
-       return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(userDto));
+    public ResponseEntity<UserResponseDTO> registerUser(@Valid @Validated(Create.class) @RequestBody UserRequestDTO userDto) {
+        log.debug("Received user registration request: {}",userDto);
+        UserResponseDTO user=userService.createUser(userDto);
+        log.debug("User created successfully with userId= {}",user.getUserId());
+       return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
     @GetMapping("{id}")
     public ResponseEntity<UserResponseDTO> getUser(@PathVariable Integer id) {

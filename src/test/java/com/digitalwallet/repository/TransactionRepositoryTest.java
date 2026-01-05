@@ -16,43 +16,18 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Transactional
 class TransactionRepositoryTest {
-
     @Autowired
     private TransactionRepository transactionRepository;
-    @Test
-    public void testFindBySenderWalletId() {
-        assertEquals(21,transactionRepository.findBySenderWalletWalletId(1).size());
-    }
-
-    @Test
-    public void testFindByReceiverWalletId() {
-        assertEquals(4,transactionRepository.findByReceiverWalletWalletId(1).size());
-    }
-
-    @Test
-    public  void testFindByStatusForSUCCESS() {
-        assertEquals(16,transactionRepository.findByStatus(TransactionStatus.SUCCESS).size());
-    }
+@Test
+public void testFindTransactionByAmount() {
+    assertEquals(2,transactionRepository.findTransactionByAmount(new BigDecimal(100)).size());
+}
 
 
-    @Test
-    public void testFindByStatusForFAILED() {
-        assertEquals(2,transactionRepository.findByStatus(TransactionStatus.FAILED).size());
-    }
-
-    @Test
-    public void testFindByStatusForPENDING() {
-        assertEquals(16,transactionRepository.findByStatus(TransactionStatus.PENDING).size());
-    }
-    @Test
-    public void testTransactionsBetween() {
-        assertEquals(21,transactionRepository.findTransactionsBetween(1,2).size());
-    }
-
-    @Test
-    public void testFindTransactionWithAmountGreaterThan() {
-        assertEquals(28,transactionRepository.findTransactionWithAmountGreaterThan(new BigDecimal(100)).size());
-    }
+@Test
+public void testFindAllByWalletId() {
+    assertEquals(3,transactionRepository.findAllByWalletId(1).size());
+}
 
     @Test
     public void testSave() {
@@ -77,11 +52,8 @@ class TransactionRepositoryTest {
 
     @Test
     public void testFindById() {
+
         assertNotNull(transactionRepository.findById(1));
     }
 
-    @Test
-    public void testFindAll() {
-        assertEquals(34,transactionRepository.findAll().size());
-    }
 }

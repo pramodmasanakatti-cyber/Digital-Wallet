@@ -1,16 +1,18 @@
 package com.digitalwallet.controller;
 
-import com.digitalwallet.dto.reqsponse.WalletResponseDTO;
+import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
 import com.digitalwallet.entity.Wallet;
 import com.digitalwallet.service.WalletService;
+import com.digitalwallet.validation.groups.Create;
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
-import java.util.List;
-
+@Slf4j
 @RestController
 @RequestMapping("/api/wallets")
 public class WalletController {
@@ -21,9 +23,11 @@ public class WalletController {
     }
 
     @PostMapping
-    public ResponseEntity<WalletResponseDTO> createWallet(@RequestBody WalletRequestDTO walletDto) {
-
-      return ResponseEntity.status(HttpStatus.OK).body(walletService.createWallet(walletDto));
+    public ResponseEntity<WalletResponseDTO> createWallet(@Valid @Validated(Create.class) @RequestBody WalletRequestDTO walletDto) {
+      log.debug("Received wallet creation request: {}",walletDto);
+        WalletResponseDTO wallet=walletService.createWallet(walletDto);
+        log.info("Wallet created successfully: walletId={}",wallet.getWalletId());
+      return ResponseEntity.status(HttpStatus.OK).body(wallet);
     }
 
     @GetMapping("/{id}")
