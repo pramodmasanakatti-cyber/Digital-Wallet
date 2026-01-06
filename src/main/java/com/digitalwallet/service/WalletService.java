@@ -4,6 +4,7 @@ import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
 import com.digitalwallet.entity.User;
 import com.digitalwallet.entity.Wallet;
+import com.digitalwallet.exception.InsufficientFundException;
 import com.digitalwallet.exception.UserNotFoundException;
 import com.digitalwallet.exception.WalletNotFoundException;
 import com.digitalwallet.mapper.WalletMapper;

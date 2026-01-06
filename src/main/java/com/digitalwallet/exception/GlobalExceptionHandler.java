@@ -51,12 +51,22 @@ public class GlobalExceptionHandler {
                         fieldrrors);
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
     }
+    @ExceptionHandler(DuplicateTransactionException.class)
+    public ResponseEntity<ErrorResponseDTO> handleDuplicateTransactionException(RuntimeException exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.CONFLICT.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponseDTO);
+    }
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponseDTO> handleGlobalException(Exception ex) {
+    public ResponseEntity<ErrorResponseDTO> handleGlobalException(Exception exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
                 LocalDateTime.now(),
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                ex.getMessage(),
+                exception.getMessage(),
                 Map.of()
         );
 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponseDTO);

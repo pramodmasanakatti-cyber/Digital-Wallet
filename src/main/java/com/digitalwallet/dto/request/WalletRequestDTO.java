@@ -1,18 +1,17 @@
 package com.digitalwallet.dto.request;
 
-import com.digitalwallet.entity.WalletType;
+import com.digitalwallet.entity.enums.WalletType;
 import com.digitalwallet.validation.annotation.ValidWalletBalance;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PositiveOrZero;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class WalletRequestDTO {
 
     @NotNull(message = "User id is required")

@@ -1,4 +1,4 @@
-package com.digitalwallet.entity;
+package com.digitalwallet.entity.enums;
 
 public enum WalletType {
     SAVINGS,

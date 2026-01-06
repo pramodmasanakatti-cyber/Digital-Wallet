@@ -1,44 +1,57 @@
 package com.digitalwallet.entity;
 
+import com.digitalwallet.entity.enums.TransactionStatus;
+import com.digitalwallet.entity.enums.TransactionType;
+import com.digitalwallet.validation.annotation.ValidTransactionAmount;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.annotation.processing.Generated;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Transactions")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+
 public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer transactionId;
 
+    @Column(name="external_tx_id",nullable = false,unique = true,updatable = false)
+    private String externalTxId;
+
     @Column(nullable = false)
-    @DecimalMin(value = "1.0", inclusive = true)
+    @ValidTransactionAmount
     private BigDecimal amount;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Sender_wallet_id",nullable = false)
-    private Wallet senderWallet;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Receiver_wallet_id",nullable = false)
-    private Wallet receiverWallet;
+    private Integer senderWalletId;
+
+
+    private Integer receiverWalletId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="Status")
+    @Column(name="Status",nullable = false)
     private TransactionStatus status;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false,updatable = false)
+    private TransactionType transactionType;
 
     private LocalDateTime transactionDate;
 
+    @Version      // Optimistic locking for concurrent updates
+    private Long version;
+
+
+    @PrePersist
+    void onCreate() {
+        this.transactionDate=LocalDateTime.now();
+        if(this.status==null) {
+            this.status = TransactionStatus.PENDING;
+        }
+    }
 }

@@ -1,14 +1,14 @@
 package com.digitalwallet.dto.response;
 
-import com.digitalwallet.entity.WalletType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.digitalwallet.entity.enums.WalletType;
+import lombok.*;
 
 import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class WalletResponseDTO {
     private Integer walletId;
     private BigDecimal balance;

@@ -1,7 +1,7 @@
-package com.digitalwallet.entity;
+package com.digitalwallet.entity.enums;
 
 public enum TransactionStatus {
-    SUCCESS,
+    COMPLETED,
     PENDING,
     FAILED
 }

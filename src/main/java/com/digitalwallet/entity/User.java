@@ -3,9 +3,7 @@ package com.digitalwallet.entity;
 import com.digitalwallet.validation.annotation.ValidUserAge;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.security.PrivateKey;
@@ -17,7 +15,6 @@ import java.util.List;
 @Entity
 @Table(name="Users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 

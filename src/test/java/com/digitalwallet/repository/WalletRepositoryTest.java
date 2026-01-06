@@ -2,7 +2,7 @@ package com.digitalwallet.repository;
 
 import com.digitalwallet.entity.User;
 import com.digitalwallet.entity.Wallet;
-import com.digitalwallet.entity.WalletType;
+import com.digitalwallet.entity.enums.WalletType;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
