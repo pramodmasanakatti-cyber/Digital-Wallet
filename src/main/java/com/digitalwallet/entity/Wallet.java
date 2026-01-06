@@ -38,6 +38,9 @@ public class Wallet {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @Version   // optimistic locking for concurrent transactions
+    private Long version;
+
 
 
     // Credit to wallet

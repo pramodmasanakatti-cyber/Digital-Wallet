@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @Table(name = "Transactions")
 @Data
 @NoArgsConstructor
-
 public class Transaction {
 
     @Id
@@ -43,8 +42,7 @@ public class Transaction {
 
     private LocalDateTime transactionDate;
 
-    @Version      // Optimistic locking for concurrent updates
-    private Long version;
+
 
 
     @PrePersist

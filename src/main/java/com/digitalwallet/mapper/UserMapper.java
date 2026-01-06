@@ -5,9 +5,10 @@ import com.digitalwallet.dto.request.UserRequestDTO;
 import com.digitalwallet.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 import org.springframework.jmx.export.annotation.ManagedOperationParameter;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
 
     @Mapping(source = "fullName",target = "fullName")

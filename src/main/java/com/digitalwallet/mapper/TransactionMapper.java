@@ -6,9 +6,10 @@ import com.digitalwallet.entity.Transaction;
 import com.digitalwallet.entity.Wallet;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.ReportingPolicy;
 
 
-    @Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
     public interface TransactionMapper {
         @Mapping(source = "amount",target = "amount")
         Transaction toEntity(TransactionRequestDTO transactionRequestDTO);
