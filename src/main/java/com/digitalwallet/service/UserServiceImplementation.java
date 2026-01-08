@@ -7,6 +7,7 @@ import com.digitalwallet.exception.DuplicateEmailException;
 import com.digitalwallet.exception.UserNotFoundException;
 import com.digitalwallet.mapper.UserMapper;
 import com.digitalwallet.repository.UserRepository;
+import com.digitalwallet.service.interfaces.UserService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,15 +15,14 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @Data
-public class UserService {
+public class UserServiceImplementation implements UserService {
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
-    public UserService(UserRepository userRepository, UserMapper userMapper) {
+    public UserServiceImplementation(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
     }
-
-    private final UserMapper userMapper;
 
     public UserResponseDTO createUser(UserRequestDTO dto) {
         log.debug("Checking user already exist with email: {}",dto.getEmail());

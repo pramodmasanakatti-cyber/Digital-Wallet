@@ -61,6 +61,28 @@ public class GlobalExceptionHandler {
         );
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponseDTO);
     }
+
+    @ExceptionHandler(WalletInactiveException.class)
+    public ResponseEntity<ErrorResponseDTO> handleWalletInactiveException(RuntimeException exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.FORBIDDEN.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponseDTO);
+    }
+
+    @ExceptionHandler(TransactionLimitExceedException.class)
+    public ResponseEntity<ErrorResponseDTO> handleTransactionLimitException(Exception exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.TOO_MANY_REQUESTS.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(errorResponseDTO);
+    }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDTO> handleGlobalException(Exception exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(

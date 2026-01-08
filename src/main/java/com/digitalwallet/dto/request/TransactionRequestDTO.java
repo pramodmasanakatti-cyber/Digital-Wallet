@@ -18,10 +18,13 @@ public class TransactionRequestDTO {
     @NotNull(groups = {Credit.class, Debit.class, Transfer.class})
     private String externalTxId;
 
-    @NotNull(message = "Sender wallet id is required",groups = {Debit.class,Transfer.class})
+    @NotNull(groups = {Credit.class,Debit.class})
+    private Integer walletId;
+
+    @NotNull(message = "Sender wallet id is required",groups = Transfer.class)
     private Integer senderWalletId;
 
-    @NotNull(message = "Receiver wallet id is required",groups = {Credit.class,Transfer.class})
+    @NotNull(message = "Receiver wallet id is required",groups =Transfer.class)
     private Integer receiverWalletId;
 
     @ValidTransactionAmount(groups = {Credit.class,Debit.class,Transfer.class})

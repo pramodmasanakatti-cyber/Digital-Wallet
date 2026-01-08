@@ -13,5 +13,4 @@ import java.util.List;
 public interface WalletRepository extends JpaRepository<Wallet,Integer> {
     @Query("SELECT w FROM Wallet w WHERE w.user.userId= :userId")
     List<Wallet> findByUserId(@Param("userId") Integer userId);
-    List<Wallet> findByBalance(BigDecimal amount);
 }

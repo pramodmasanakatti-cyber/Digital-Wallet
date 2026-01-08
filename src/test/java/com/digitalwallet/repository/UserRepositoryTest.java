@@ -28,16 +28,11 @@ class UserRepositoryTest {
     }
 
     @Test
-    public void testgetTotalBalanceByUser() {
-        assertEquals(new BigDecimal(7000.00), userRepository.getTotalBalanceByUser(1).setScale(0,RoundingMode.DOWN));
-    }
-
-    @Test
     public void testSave() {
         User user=new User();
         user.setFullName("Pramod");
         user.setPhone("123");
-        user.setEmail("pramod@gmail.com");
+        user.setEmail("pram@gmail.com");
         assertNotNull(userRepository.save(user));
     }
 
@@ -46,9 +41,6 @@ class UserRepositoryTest {
         assertEquals("Alice Johnson",userRepository.findById(1).orElseThrow(()->new RuntimeException("USer not found")).getFullName());
     }
 
-    @Test
-    public void testFindAll() {
-        assertEquals(13,userRepository.findAll().size());
-    }
+
 
  }

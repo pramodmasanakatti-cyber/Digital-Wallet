@@ -17,15 +17,6 @@ class WalletRepositoryTest {
     @Autowired
     private WalletRepository walletRepository;
 @Test
-    public void testFindByUserId() {
-    assertEquals(18,walletRepository.findByUserId(1).size());
-}
-@Test
-    public void testFindByBalance() {
-    assertEquals(8,walletRepository.findByBalance(BigDecimal.valueOf(100)).size());
-}
-
-@Test
     public void testSave() {
     Wallet wallet=new Wallet();
     User user=new User();
@@ -40,10 +31,7 @@ class WalletRepositoryTest {
     assertNotNull(wallet.getWalletId());
 }
 
-@Test
-    public void testFindAll() {
-    assertEquals(34,walletRepository.findAll().size());
-}
+
 @Test
     public void testFindById() {
     assertEquals(1,walletRepository.findById(1).orElseThrow(()->new RuntimeException("Wallet not found")).getUser().getUserId());

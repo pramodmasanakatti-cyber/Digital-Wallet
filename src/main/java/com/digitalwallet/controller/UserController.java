@@ -2,7 +2,7 @@ package com.digitalwallet.controller;
 
 import com.digitalwallet.dto.response.UserResponseDTO;
 import com.digitalwallet.dto.request.UserRequestDTO;
-import com.digitalwallet.service.UserService;
+import com.digitalwallet.service.interfaces.UserService;
 import com.digitalwallet.validation.groups.Create;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

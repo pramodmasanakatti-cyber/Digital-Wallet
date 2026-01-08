@@ -3,7 +3,8 @@ package com.digitalwallet.controller;
 import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
 import com.digitalwallet.entity.Wallet;
-import com.digitalwallet.service.WalletService;
+
+import com.digitalwallet.service.interfaces.WalletService;
 import com.digitalwallet.validation.groups.Create;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -39,4 +40,17 @@ public class WalletController {
     public ResponseEntity<String> getWalletBalance(@PathVariable Integer id) {
         return ResponseEntity.status(HttpStatus.OK).body("Balance: " + walletService.getWalletBalance(id));
     }
+
+    @PostMapping("/{id}/activate")
+    public ResponseEntity<String> activateWallet(@PathVariable Integer id) {
+        walletService.activateWallet(id);
+       return ResponseEntity.status(HttpStatus.OK).body("Wallet activated sucessfully walletId: " +id);
+    }
+
+    @PostMapping("{id}/inactivate")
+    public ResponseEntity<String> inactivateWallet(@PathVariable Integer id) {
+        walletService.inactivateWallet(id);
+        return ResponseEntity.status(HttpStatus.OK).body("Wallet inactivated successfully walletId: " + id);
+    }
+
 }

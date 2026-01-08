@@ -13,6 +13,7 @@ public interface WalletMapper {
     @Mapping(source = "existingUser",target = "user")
     @Mapping(source = "dto.walletType",target = "walletType")
     @Mapping(source = "dto.balance",target = "balance")
+    @Mapping(source = "dto.status",target="status")
     Wallet toEntity(WalletRequestDTO dto, User existingUser);
 
 
@@ -20,5 +21,6 @@ public interface WalletMapper {
     @Mapping(source = "balance",target = "balance")
     @Mapping(source = "walletType",target = "walletType")
     @Mapping(source = "user.userId",target = "userId")
+    @Mapping(source = "status",target = "status")
     WalletResponseDTO toResponseDTO(Wallet wallet);
 }

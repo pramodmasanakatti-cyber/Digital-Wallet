@@ -26,6 +26,8 @@ public class Transaction {
     @ValidTransactionAmount
     private BigDecimal amount;
 
+    private Integer walletId;
+
 
     private Integer senderWalletId;
 
