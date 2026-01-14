@@ -1,9 +1,9 @@
 package com.digitalwallet.exception;
 
 import com.digitalwallet.dto.response.ErrorResponseDTO;
+import jakarta.transaction.InvalidTransactionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -51,7 +50,7 @@ public class GlobalExceptionHandler {
                         fieldrrors);
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
     }
-    @ExceptionHandler(DuplicateTransactionException.class)
+    @ExceptionHandler(DuplicateExternalKeyException.class)
     public ResponseEntity<ErrorResponseDTO> handleDuplicateTransactionException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
                 LocalDateTime.now(),
@@ -82,6 +81,17 @@ public class GlobalExceptionHandler {
                 Map.of()
         );
         return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(errorResponseDTO);
+    }
+
+    @ExceptionHandler(InvalidTransactionException.class)
+    public ResponseEntity<ErrorResponseDTO> handleInvalidTransactionException(Exception exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
     }
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDTO> handleGlobalException(Exception exception) {

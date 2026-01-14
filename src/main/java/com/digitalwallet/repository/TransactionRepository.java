@@ -1,8 +1,10 @@
 package com.digitalwallet.repository;
 
 import com.digitalwallet.entity.Transaction;
+import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -18,6 +20,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, Intege
 
     boolean existsByExternalTxId(String txId);
 
-    @Query("SELECT COALESCE(SUM(t.amount),0) FROM Transaction t WHERE t.senderWalletId= :walletId OR t.walletId= :walletId AND t.transactionType!='CREDIT'  AND FUNCTION(DATE,t.transactionDate)= :date")
+    @Query("SELECT COALESCE(SUM(t.amount),0) FROM Transaction t WHERE t.senderWalletId= :walletId OR t.walletId= :walletId AND t.transactionType!='CREDIT' AND t.status!='FAILED' AND FUNCTION(DATE,t.transactionDate)= :date")
     BigDecimal sumByWalletAndDate(@Param("walletId") Integer walletId,@Param("date") LocalDate date);
 }

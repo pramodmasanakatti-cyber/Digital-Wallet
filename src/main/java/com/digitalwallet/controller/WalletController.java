@@ -2,7 +2,6 @@ package com.digitalwallet.controller;
 
 import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
-import com.digitalwallet.entity.Wallet;
 
 import com.digitalwallet.service.interfaces.WalletService;
 import com.digitalwallet.validation.groups.Create;
@@ -52,5 +51,7 @@ public class WalletController {
         walletService.inactivateWallet(id);
         return ResponseEntity.status(HttpStatus.OK).body("Wallet inactivated successfully walletId: " + id);
     }
+
+
 
 }

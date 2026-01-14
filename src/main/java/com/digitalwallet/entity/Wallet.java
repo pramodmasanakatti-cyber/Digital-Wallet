@@ -24,9 +24,7 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer walletId;
 
-    @ManyToOne
-    @JoinColumn(name = "User_id",nullable = false)
-    private User user;
+   private Integer userId;
 
     @Column(nullable = false)
     @ValidWalletBalance

@@ -1,13 +1,12 @@
 package com.digitalwallet.service;
 
+import com.digitalwallet.client.UserClient;
 import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
-import com.digitalwallet.entity.User;
 import com.digitalwallet.entity.Wallet;
 import com.digitalwallet.entity.enums.WalletStatus;
 import com.digitalwallet.exception.*;
 import com.digitalwallet.mapper.WalletMapper;
-import com.digitalwallet.repository.UserRepository;
 import com.digitalwallet.repository.WalletRepository;
 import com.digitalwallet.service.interfaces.WalletService;
 import lombok.extern.slf4j.Slf4j;
@@ -18,25 +17,32 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class WalletServiceImplementation implements WalletService {
+public class WalletServiceImpl implements WalletService {
 private final WalletRepository walletRepository;
 private final WalletMapper walletMapper;
 
-    public WalletServiceImplementation(WalletRepository walletRepository, WalletMapper walletMapper, UserRepository userRepository) {
+    public WalletServiceImpl(WalletRepository walletRepository, WalletMapper walletMapper, UserClient userClient) {
         this.walletRepository = walletRepository;
         this.walletMapper = walletMapper;
-        this.userRepository = userRepository;
+        this.userClient = userClient;
     }
 
-    private final UserRepository userRepository;
+
+    private final UserClient userClient;
 
     public WalletResponseDTO createWallet(WalletRequestDTO walletDto) {
+        log.debug("Calling user service to verify user");
+        userClient.validateUser(walletDto.getUserId());
 
-        User user=userRepository.findById(walletDto.getUserId()).orElseThrow(()-> new UserNotFoundException("User not found with the id: " + walletDto.getUserId()));
+
         log.debug("Mapping WalletRequestDTO to Wallet entity: {}",walletDto);
-        Wallet wallet=walletMapper.toEntity(walletDto,user);
+        Wallet wallet=walletMapper.toEntity(walletDto);
+
+
         log.debug("Saving Wallet entity: {}",wallet);
         Wallet saved=walletRepository.save(wallet);
+
+
         log.info("Wallet saved successfully with wallletId={}",saved.getWalletId());
         return walletMapper.toResponseDTO(saved);
     }
