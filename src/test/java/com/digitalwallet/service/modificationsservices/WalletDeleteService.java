@@ -1,4 +1,4 @@
-package com.digitalwallet.service;
+package com.digitalwallet.service.modificationsservices;
 
 import com.digitalwallet.repository.WalletRepository;
 import org.springframework.beans.factory.annotation.Autowired;

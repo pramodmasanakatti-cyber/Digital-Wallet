@@ -16,7 +16,7 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
 
-
+     // Exception handling for UserNotFound,WalletNotFound
     @ExceptionHandler({UserNotFoundException.class,WalletNotFoundException.class})
     public ResponseEntity<ErrorResponseDTO> handleResourceNotFoundException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
@@ -27,6 +27,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponseDTO);
     }
 
+    // Exception handling for DuplicateEmail
     @ExceptionHandler(DuplicateEmailException.class)
     public ResponseEntity<ErrorResponseDTO> handleDuplicateEmailException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
@@ -37,6 +38,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponseDTO);
     }
 
+    // Exception handling for MethodArgumentNotValid
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public  ResponseEntity<ErrorResponseDTO> handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
         Map<String,String> fieldrrors=new HashMap<>();
@@ -50,6 +52,8 @@ public class GlobalExceptionHandler {
                         fieldrrors);
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
     }
+
+    // Exception handling for DuplicateExternalKey
     @ExceptionHandler(DuplicateExternalKeyException.class)
     public ResponseEntity<ErrorResponseDTO> handleDuplicateTransactionException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
@@ -61,6 +65,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponseDTO);
     }
 
+    // Exception handling for WalletInactive
     @ExceptionHandler(WalletInactiveException.class)
     public ResponseEntity<ErrorResponseDTO> handleWalletInactiveException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
@@ -72,6 +77,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorResponseDTO);
     }
 
+    // Exception handling for TransactionLimitExceed
     @ExceptionHandler(TransactionLimitExceedException.class)
     public ResponseEntity<ErrorResponseDTO> handleTransactionLimitException(Exception exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
@@ -83,6 +89,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(errorResponseDTO);
     }
 
+    // Exception handling for InvalidTransaction
     @ExceptionHandler(InvalidTransactionException.class)
     public ResponseEntity<ErrorResponseDTO> handleInvalidTransactionException(Exception exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
@@ -93,6 +100,8 @@ public class GlobalExceptionHandler {
         );
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
     }
+
+    // Exception handling for other exceptions
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDTO> handleGlobalException(Exception exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(

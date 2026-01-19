@@ -23,3 +23,5 @@ logging:
     name: "logs/application.log"
 user-service:
   base-url: http://localhost:8081
+jwt:
+  secret: ThisIsTheSecretKeyForDigitalWalletProject1234

@@ -14,12 +14,12 @@ import com.digitalwallet.exception.WalletNotFoundException;
 import com.digitalwallet.repository.TransactionRepository;
 import com.digitalwallet.repository.WalletRepository;
 import com.digitalwallet.service.interfaces.TransactionService;
+import com.digitalwallet.service.modificationsservices.TransactionDeleteService;
+import com.digitalwallet.service.modificationsservices.WalletDeleteService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Commit;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.UUID;

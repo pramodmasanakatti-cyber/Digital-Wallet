@@ -54,23 +54,22 @@ public class TransactionServiceImpl implements TransactionService {
     public TransactionResponseDTO credit(TransactionRequestDTO transactionRequestDTO) {
 
         // Check the transaction is currently processing (Idempotency)
-        validateDuplicateExternalKey(transactionRequestDTO.getExternalTxId());
+        if(transactionRepository.existsByExternalTxId(transactionRequestDTO.getExternalTxId())) {
+           return transactionMapper.toDto(transactionRepository.findByExternalTxId(transactionRequestDTO.getExternalTxId()).orElseThrow(()->new TransactionNotFoundException("Transaction not found for externalTxId: " + transactionRequestDTO.getExternalTxId())));
+        }
+
+        // Get wallet
+        Wallet wallet = walletService.getWalletById(transactionRequestDTO.getWalletId());
 
         // Create transaction object and save as pending
         Transaction transaction = transactionPendingService.savePendingTransaction(transactionRequestDTO, TransactionType.CREDIT);
         try {
-            // Get wallet
-            Wallet wallet = walletService.getWalletById(transactionRequestDTO.getWalletId());
-
             // Credit amount to wallet
             walletService.credit(wallet, transactionRequestDTO.getAmount());
             transaction.setStatus(TransactionStatus.COMPLETED);
             transactionRepository.save(transaction);
             return transactionMapper.toDto(transaction);
-        } catch(WalletNotFoundException exception){
-            transactionFailureService.markFailedTransaction(transaction);
-            throw exception;
-        } catch (WalletInactiveException exception) {
+        }  catch (WalletInactiveException exception) {
             transactionFailureService.markFailedTransaction(transaction);
             throw exception;
         } catch (InsufficientFundException exception) {
@@ -94,13 +93,15 @@ public class TransactionServiceImpl implements TransactionService {
     public TransactionResponseDTO debit(TransactionRequestDTO transactionRequestDTO) {
 
         // Check the transaction is currently processing (Idempotency)
-        validateDuplicateExternalKey(transactionRequestDTO.getExternalTxId());
+        if(transactionRepository.existsByExternalTxId(transactionRequestDTO.getExternalTxId())) {
+            return transactionMapper.toDto(transactionRepository.findByExternalTxId(transactionRequestDTO.getExternalTxId()).orElseThrow(()->new TransactionNotFoundException("Transaction not found for externalTxId: " + transactionRequestDTO.getExternalTxId())));
+        }
+        // Get wallet
+        Wallet wallet = walletService.getWalletById(transactionRequestDTO.getWalletId());
 
         // Create transaction object and save as pending
         Transaction transaction=transactionPendingService.savePendingTransaction(transactionRequestDTO,TransactionType.DEBIT);
       try {
-          // Get wallet
-          Wallet wallet = walletService.getWalletById(transactionRequestDTO.getWalletId());
 
           // Validate transaction limit before debiting
           validateTransactionLimit(wallet, transactionRequestDTO.getAmount());
@@ -112,10 +113,7 @@ public class TransactionServiceImpl implements TransactionService {
           transactionRepository.save(transaction);
           return transactionMapper.toDto(transaction);
 
-      } catch(WalletNotFoundException exception){
-          transactionFailureService.markFailedTransaction(transaction);
-          throw exception;
-      } catch (WalletInactiveException exception) {
+      }  catch (WalletInactiveException exception) {
           transactionFailureService.markFailedTransaction(transaction);
           throw exception;
       } catch (InsufficientFundException exception) {
@@ -140,18 +138,21 @@ public class TransactionServiceImpl implements TransactionService {
         if(transactionRequestDTO.getSenderWalletId().equals(transactionRequestDTO.getReceiverWalletId())) throw new InvalidTransactionExceptionCustom("Transaction cannot possible because senderWallet and receiverWallet are same");
 
         // Check the transaction is currently processing (Idempotency)
-        validateDuplicateExternalKey(transactionRequestDTO.getExternalTxId());
+        if(transactionRepository.existsByExternalTxId(transactionRequestDTO.getExternalTxId())) {
+            return transactionMapper.toDto(transactionRepository.findByExternalTxId(transactionRequestDTO.getExternalTxId()).orElseThrow(()->new TransactionNotFoundException("Transaction not found for externalTxId: " + transactionRequestDTO.getExternalTxId())));
+        }
+
+
+        // Get sender wallet
+        Wallet senderWallet = walletService.getWalletById(transactionRequestDTO.getSenderWalletId());
+
+        // Get receiver wallet
+        Wallet receiverWallet = walletService.getWalletById(transactionRequestDTO.getReceiverWalletId());
 
         // Create transaction object and save as pending
         Transaction transaction=transactionPendingService.savePendingTransaction(transactionRequestDTO,TransactionType.TRANSFER);
 
         try {
-            // Get sender wallet
-            Wallet senderWallet = walletService.getWalletById(transactionRequestDTO.getSenderWalletId());
-
-            // Get receiver wallet
-            Wallet receiverWallet = walletService.getWalletById(transactionRequestDTO.getReceiverWalletId());
-
 
             // Validate transaction limit for sender before transaction
             validateTransactionLimit(senderWallet, transactionRequestDTO.getAmount());
@@ -165,10 +166,7 @@ public class TransactionServiceImpl implements TransactionService {
             transaction.setStatus(TransactionStatus.COMPLETED);
             transactionRepository.save(transaction);
             return transactionMapper.toDto(transaction);
-        } catch(WalletNotFoundException exception){
-            transactionFailureService.markFailedTransaction(transaction);
-            throw exception;
-        } catch (WalletInactiveException exception) {
+        }  catch (WalletInactiveException exception) {
             transactionFailureService.markFailedTransaction(transaction);
             throw exception;
         } catch (InsufficientFundException exception) {
@@ -206,9 +204,9 @@ public class TransactionServiceImpl implements TransactionService {
         }
     }
 
-    private void validateDuplicateExternalKey(String externalTxId) {
-        if(transactionRepository.existsByExternalTxId(externalTxId)) {
-            throw new DuplicateExternalKeyException("Duplicate transaction for same externalTransactionId: " + externalTxId);
-        }
-    }
+//    private void validateDuplicateExternalKey(String externalTxId) {
+//        if(transactionRepository.existsByExternalTxId(externalTxId)) {
+//            throw new DuplicateExternalKeyException("Duplicate transaction for same externalTransactionId: " + externalTxId);
+//        }
+//    }
 }
