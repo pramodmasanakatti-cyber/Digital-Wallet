@@ -21,3 +21,14 @@ logging:
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
   file:
     name: "logs/application.log"
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger
+    operations-sorter: method
+    tags-sorter: alpha
+
+jwt:
+  secret: ThisIsTheSecretKeyForDigitalWalletProject1234

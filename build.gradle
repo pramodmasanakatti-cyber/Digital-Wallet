@@ -40,6 +40,8 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
+    implementation 'org.springframework.security:spring-security-crypto'
+
     // 🔐 Spring Security
     implementation 'org.springframework.boot:spring-boot-starter-security'
 
@@ -48,10 +50,22 @@ dependencies {
     runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
     runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
+    // Springdoc OpenAPI specification
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+
+    // Testcontainers
+    testImplementation platform("org.testcontainers:testcontainers-bom:1.20.4")
+    testImplementation "org.testcontainers:junit-jupiter"
+    testImplementation "org.testcontainers:mysql"
+
 }
 
 test {
     useJUnitPlatform()
+
+    // 🚨 Force Testcontainers to ignore Docker Desktop's injected DOCKER_HOST
+    environment "DOCKER_HOST", ""
+
 }
 
 tasks.named('test') {

@@ -42,8 +42,6 @@ public class UserServiceImpl implements UserService {
         // encoding password
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
-        // set default role
-        user.setRole(Role.USER);
 
         log.debug("Saving User entity");
         user=userRepository.save(user);

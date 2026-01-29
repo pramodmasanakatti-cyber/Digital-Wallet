@@ -6,6 +6,7 @@ import jakarta.transaction.InvalidTransactionException;
 import org.apache.tomcat.websocket.AuthenticationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,7 +20,7 @@ import java.util.Map;
 public class GlobalExceptionHandler {
 
 
-    @ExceptionHandler({UserNotFoundException.class,UsernameNotFoundException.class})
+    @ExceptionHandler({UserNotFoundException.class, UsernameNotFoundException.class})
     public ResponseEntity<ErrorResponseDTO> handleResourceNotFoundException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(
                 LocalDateTime.now(),
