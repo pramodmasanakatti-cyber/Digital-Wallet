@@ -9,55 +9,63 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-
     private final String SECRET;
 
-    public JwtAuthenticationFilter( @Value("${jwt.secret}")String secret) {
-        SECRET = secret;
+    public JwtAuthenticationFilter(@Value("${jwt.secret}") String secret) {
+        this.SECRET = secret;
     }
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-     String authHeader=request.getHeader("Authorization");
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
 
-     if(authHeader!=null && authHeader.startsWith("Bearer ")) {
-        String token=authHeader.substring(7);
+        String authHeader = request.getHeader("Authorization");
 
-        try {
-            Claims claims= Jwts.parser()
-                    .setSigningKey(SECRET.getBytes())
-                    .parseClaimsJws(token)
-                    .getBody();
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
 
-            String userId=claims.getSubject();
+            try {
+                Claims claims = Jwts.parserBuilder()
+                        .setSigningKey(SECRET.getBytes())
+                        .build()
+                        .parseClaimsJws(token)
+                        .getBody();
 
-            // Create an authentication object
-            UsernamePasswordAuthenticationToken auth=new UsernamePasswordAuthenticationToken(userId,null, Collections.emptyList());
+                String userName = claims.getSubject();
 
-            auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                List<String> roles = claims.get("roles", List.class);
+                if (roles == null) roles = List.of();
 
-            // Set authentication in context
-            SecurityContextHolder.getContext().setAuthentication(auth);
+                List<GrantedAuthority> authorities = roles.stream()
+                        .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
+                        .collect(Collectors.toList());
 
-        } catch(Exception exception) {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Invalid token");
-            return;
+                UsernamePasswordAuthenticationToken auth =
+                        new UsernamePasswordAuthenticationToken(userName, null, authorities);
+
+                SecurityContextHolder.getContext().setAuthentication(auth);
+
+            } catch (Exception e) {
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid token");
+                return;
+            }
         }
-     } else {
-      response.sendError(HttpServletResponse.SC_UNAUTHORIZED,"Missing token");
-      return;
-     }
-     filterChain.doFilter(request,response);
+
+        // Always continue the filter chain
+        filterChain.doFilter(request, response);
     }
 }

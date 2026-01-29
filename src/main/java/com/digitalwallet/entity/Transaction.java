@@ -3,6 +3,7 @@ package com.digitalwallet.entity;
 import com.digitalwallet.entity.enums.TransactionStatus;
 import com.digitalwallet.entity.enums.TransactionType;
 import com.digitalwallet.validation.annotation.ValidTransactionAmount;
+import io.swagger.v3.oas.annotations.Hidden;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Table(name = "Transactions")
 @Data
 @NoArgsConstructor
+@Hidden
 public class Transaction {
 
     @Id

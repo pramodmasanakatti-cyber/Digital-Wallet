@@ -1,78 +1,641 @@
-2026-01-19 12:57:22 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 86560 (/Users/pramodmasanakatti/Downloads/Digital-Wallet/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Digital-Wallet)
-2026-01-19 12:57:22 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
-2026-01-19 12:57:22 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-01-19 12:57:22 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-01-19 12:57:22 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-01-19 12:57:22 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
-2026-01-19 12:57:23 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-01-19 12:57:23 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-01-19 12:57:23 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2026-01-19 12:57:23 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-01-19 12:57:23 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 999 ms
-2026-01-19 12:57:23 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-01-19 12:57:23 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-01-19 12:57:23 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-01-19 12:57:23 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-01-19 12:57:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-01-19 12:57:23 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1711e45a
-2026-01-19 12:57:23 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-01-19 12:57:23 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-01-19 12:57:23 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2026-01-19 12:57:24 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-19 12:57:24 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-01-19 12:57:24 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-01-19 12:57:24 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-01-19 12:57:25 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
-2026-01-19 12:57:25 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-01-19 12:57:25 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.14 seconds (process running for 3.454)
-2026-01-19 12:59:07 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-19 12:59:07 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-01-19 12:59:07 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
-2026-01-19 12:59:08 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
-2026-01-19 13:11:39 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-01-19 13:11:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-01-19 13:11:39 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2026-01-19 17:51:52 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 1548 (/Users/pramodmasanakatti/Downloads/Digital-Wallet/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Digital-Wallet)
-2026-01-19 17:51:52 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
-2026-01-19 17:51:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2026-01-19 17:51:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2026-01-19 17:51:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-01-19 17:51:52 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 2 JPA repository interfaces.
-2026-01-19 17:51:52 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
-2026-01-19 17:51:52 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-01-19 17:51:52 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
-2026-01-19 17:51:52 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-01-19 17:51:52 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 808 ms
-2026-01-19 17:51:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-01-19 17:51:53 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-01-19 17:51:53 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-01-19 17:51:53 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-01-19 17:51:53 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-01-19 17:51:53 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6caadb03
-2026-01-19 17:51:53 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-01-19 17:51:53 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-01-19 17:51:53 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
-2026-01-19 17:51:53 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-01-19 17:51:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-01-19 17:51:54 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-01-19 17:51:54 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-01-19 17:51:54 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+2026-01-29 12:52:00 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 86747 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 12:52:00 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 12:52:00 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 12:52:00 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 12:52:01 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 12:52:01 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2026-01-29 12:52:01 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 12:52:01 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 12:52:01 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 12:52:01 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 12:52:01 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1063 ms
+2026-01-29 12:52:01 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 12:52:02 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 12:52:02 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 12:52:02 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 12:52:02 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 12:52:02 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5af147f6
+2026-01-29 12:52:02 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 12:52:02 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 12:52:02 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 12:52:03 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 12:52:03 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 12:52:03 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 12:52:03 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 12:52:03 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
 
-Using generated security password: 4152b4c4-6003-44c1-bdf3-1ba2a357b6c6
+Using generated security password: 9383b191-ae64-4d5f-976d-eb805f4ab8a1
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-01-19 17:51:54 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-01-19 17:51:54 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
-2026-01-19 17:51:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
-2026-01-19 17:51:54 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 2.929 seconds (process running for 3.271)
-2026-01-19 17:52:10 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-01-19 17:52:10 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-01-19 17:52:10 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2026-01-19 17:53:31 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
-2026-01-19 17:53:41 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
-2026-01-19 17:54:46 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
-2026-01-19 17:54:53 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
-2026-01-19 17:55:11 [http-nio-8080-exec-4] DEBUG c.d.controller.WalletController - Received wallet creation request: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
-2026-01-19 17:55:11 [http-nio-8080-exec-4] DEBUG c.d.service.WalletServiceImpl - Calling user service to verify user
-2026-01-19 17:55:11 [http-nio-8080-exec-4] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.digitalwallet.exception.UserNotFoundException: User not found for the id: 1]
+2026-01-29 12:52:03 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 12:52:04 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 12:52:04 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 12:52:04 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.666 seconds (process running for 4.126)
+2026-01-29 12:53:22 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 12:53:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 12:53:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-01-29 12:53:22 [http-nio-8080-exec-1] DEBUG c.d.controller.WalletController - Received wallet creation request: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
+2026-01-29 12:53:22 [http-nio-8080-exec-1] DEBUG c.d.service.WalletServiceImpl - Calling user service to verify user
+2026-01-29 12:53:23 [http-nio-8080-exec-1] DEBUG c.d.service.WalletServiceImpl - Mapping WalletRequestDTO to Wallet entity: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
+2026-01-29 12:53:23 [http-nio-8080-exec-1] DEBUG c.d.service.WalletServiceImpl - Saving Wallet entity: Wallet(walletId=null, userId=1, balance=10, walletType=SAVINGS, createdAt=null, version=null, status=ACTIVE)
+2026-01-29 12:53:23 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,status,user_id,version,wallet_type) values (?,?,?,?,?,?)
+2026-01-29 12:53:23 [http-nio-8080-exec-1] INFO  c.d.service.WalletServiceImpl - Wallet saved successfully with wallletId=4
+2026-01-29 12:53:23 [http-nio-8080-exec-1] INFO  c.d.controller.WalletController - Wallet created successfully: walletId=4
+2026-01-29 12:53:40 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:53:46 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:53:51 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:53:51 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.digitalwallet.exception.wallet.WalletNotFoundException: Wallet not found with id: 100]
+2026-01-29 12:53:55 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:02 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:02 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 12:54:11 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:11 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 12:54:27 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 12:54:27 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:27 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 12:54:27 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 12:54:27 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 12:54:27 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.sender_wallet_id=? or t1_0.wallet_id=? and t1_0.transaction_type<>'CREDIT' and t1_0.status<>'FAILED' and date(t1_0.transaction_date)=?
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 12:54:38 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.sender_wallet_id=? or t1_0.wallet_id=? and t1_0.transaction_type<>'CREDIT' and t1_0.status<>'FAILED' and date(t1_0.transaction_date)=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 12:54:55 [http-nio-8080-exec-2] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.digitalwallet.exception.transaction.TransactionLimitExceedException: You have crossed transaction limit]
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.sender_wallet_id=? or t1_0.wallet_id=? and t1_0.transaction_type<>'CREDIT' and t1_0.status<>'FAILED' and date(t1_0.transaction_date)=?
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 12:55:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 12:55:05 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.digitalwallet.exception.transaction.InsufficientFundException: Insufficient funds balance : 810.00]
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.sender_wallet_id=? or t1_0.wallet_id=? and t1_0.transaction_type<>'CREDIT' and t1_0.status<>'FAILED' and date(t1_0.transaction_date)=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 12:55:13 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 12:55:25 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 12:55:25 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where (t1_0.sender_wallet_id=? or t1_0.receiver_wallet_id=? or t1_0.wallet_id=?) and t1_0.status=? order by t1_0.transaction_date desc limit ?,?
+2026-01-29 12:55:25 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select count(t1_0.transaction_id) from transactions t1_0 where (t1_0.sender_wallet_id=? or t1_0.receiver_wallet_id=? or t1_0.wallet_id=?) and t1_0.status=?
+2026-01-29 12:55:25 [http-nio-8080-exec-4] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-01-29 13:00:52 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:00:52 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where (t1_0.sender_wallet_id=? or t1_0.receiver_wallet_id=? or t1_0.wallet_id=?) and t1_0.transaction_type=? and t1_0.status=? order by t1_0.transaction_date desc limit ?,?
+2026-01-29 13:04:10 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:04:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 13:04:10 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 13:04:26 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 93316 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 13:04:26 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 13:04:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 13:04:26 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 13:04:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 13:04:27 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2026-01-29 13:04:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 13:04:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 13:04:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 13:04:27 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 13:04:27 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1394 ms
+2026-01-29 13:04:27 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 13:04:27 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 13:04:27 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 13:04:28 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 13:04:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 13:04:28 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6486119b
+2026-01-29 13:04:28 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 13:04:28 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 13:04:28 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 13:04:28 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 13:04:28 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:04:28 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 13:04:29 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 13:04:29 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 1ca28526-c7f9-4316-b08b-3d4a5a605968
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 13:04:29 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 13:04:29 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 13:04:29 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 13:04:29 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 4.189 seconds (process running for 4.7)
+2026-01-29 13:05:55 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 13:05:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 13:05:55 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-01-29 13:05:55 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0
+2026-01-29 13:06:53 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:06:53 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 13:06:54 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 13:07:02 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 94662 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 13:07:02 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 13:07:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 13:07:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 13:07:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 13:07:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2026-01-29 13:07:03 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 13:07:03 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 13:07:03 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 13:07:03 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 13:07:03 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1051 ms
+2026-01-29 13:07:03 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 13:07:03 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 13:07:03 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 13:07:03 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 13:07:03 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 13:07:04 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e43157d
+2026-01-29 13:07:04 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 13:07:04 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 13:07:04 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 13:07:04 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 13:07:04 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:07:04 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 13:07:05 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 13:07:05 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9b401a3f-1a6b-45ca-b9bd-6df106140f45
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 13:07:05 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 13:07:05 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 13:07:05 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 13:07:05 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.656 seconds (process running for 4.102)
+2026-01-29 13:07:08 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 13:07:08 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 13:07:08 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-01-29 13:07:08 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0
+2026-01-29 13:07:51 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:07:51 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where (t1_0.sender_wallet_id=? or t1_0.receiver_wallet_id=? or t1_0.wallet_id=?) and t1_0.transaction_type=? and t1_0.status=? order by t1_0.transaction_date desc limit ?,?
+2026-01-29 13:07:51 [http-nio-8080-exec-3] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-01-29 13:08:17 [http-nio-8080-exec-4] DEBUG c.d.controller.WalletController - Received wallet creation request: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
+2026-01-29 13:08:17 [http-nio-8080-exec-4] DEBUG c.d.service.WalletServiceImpl - Calling user service to verify user
+2026-01-29 13:08:17 [http-nio-8080-exec-4] DEBUG c.d.service.WalletServiceImpl - Mapping WalletRequestDTO to Wallet entity: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
+2026-01-29 13:08:17 [http-nio-8080-exec-4] DEBUG c.d.service.WalletServiceImpl - Saving Wallet entity: Wallet(walletId=null, userId=1, balance=10, walletType=SAVINGS, createdAt=null, version=null, status=ACTIVE)
+2026-01-29 13:08:17 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,status,user_id,version,wallet_type) values (?,?,?,?,?,?)
+2026-01-29 13:08:17 [http-nio-8080-exec-4] INFO  c.d.service.WalletServiceImpl - Wallet saved successfully with wallletId=5
+2026-01-29 13:08:17 [http-nio-8080-exec-4] INFO  c.d.controller.WalletController - Wallet created successfully: walletId=5
+2026-01-29 13:08:19 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:08:23 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:08:26 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:08:26 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 13:08:29 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:08:29 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 13:08:32 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:08:32 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where (t1_0.sender_wallet_id=? or t1_0.receiver_wallet_id=? or t1_0.wallet_id=?) and t1_0.transaction_type=? and t1_0.status=? order by t1_0.transaction_date desc limit ?,?
+2026-01-29 13:08:35 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0
+2026-01-29 13:09:52 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0
+2026-01-29 13:10:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 13:10:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:10:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 13:10:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 13:10:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 13:10:03 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 13:10:31 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:10:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 13:10:31 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 13:12:02 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 97281 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 13:12:02 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 13:12:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 13:12:02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 13:12:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 13:12:03 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2026-01-29 13:12:03 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 13:12:03 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 13:12:03 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 13:12:03 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 13:12:03 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1032 ms
+2026-01-29 13:12:04 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 13:12:04 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 13:12:04 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 13:12:04 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 13:12:04 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 13:12:04 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@515eb05e
+2026-01-29 13:12:04 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 13:12:04 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 13:12:04 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 13:12:05 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 13:12:05 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:12:05 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 13:12:05 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 13:12:05 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 51e5dde9-7fa6-4f29-88fb-2ba1698b9cae
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 13:12:05 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 13:12:06 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 13:12:06 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 13:12:06 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.55 seconds (process running for 3.979)
+2026-01-29 13:12:07 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 13:12:07 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 13:12:07 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-01-29 13:12:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 13:12:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:12:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 13:12:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 13:12:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 13:12:07 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 13:12:18 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:12:18 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 13:12:18 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 13:12:23 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 97486 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 13:12:23 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 13:12:23 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 13:12:23 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 13:12:24 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 13:12:24 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2026-01-29 13:12:24 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 13:12:24 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 13:12:24 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 13:12:24 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 13:12:24 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 969 ms
+2026-01-29 13:12:25 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 13:12:25 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 13:12:25 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 13:12:25 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 13:12:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 13:12:25 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7aae6963
+2026-01-29 13:12:25 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 13:12:25 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 13:12:25 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 13:12:25 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 13:12:25 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:12:26 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 13:12:26 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 13:12:26 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 695d3c26-0b11-4a21-bc08-4c06f44814d3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 13:12:26 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 13:12:26 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 13:12:27 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 13:12:27 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.284 seconds (process running for 3.679)
+2026-01-29 13:12:27 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 13:12:27 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 13:12:27 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2026-01-29 13:12:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 13:12:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:12:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 13:12:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 13:12:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 13:12:28 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 13:12:35 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:12:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 13:12:35 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 13:12:44 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 97583 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 13:12:44 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 13:12:44 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 13:12:44 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 13:12:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 13:12:44 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 58 ms. Found 2 JPA repository interfaces.
+2026-01-29 13:12:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 13:12:45 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 13:12:45 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 13:12:45 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 13:12:45 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1160 ms
+2026-01-29 13:12:45 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 13:12:45 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 13:12:45 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 13:12:45 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 13:12:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 13:12:45 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61124f30
+2026-01-29 13:12:45 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 13:12:45 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 13:12:45 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 13:12:46 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 13:12:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 13:12:46 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 13:12:46 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 13:12:46 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 4da4c453-a185-47d3-afb1-1a9e38b81872
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 13:12:46 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 13:12:47 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 13:12:47 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 13:12:47 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.473 seconds (process running for 3.793)
+2026-01-29 13:12:50 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 13:12:50 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 13:12:50 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2026-01-29 13:12:51 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 13:12:51 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 13:12:51 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 13:12:51 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 13:12:51 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 13:12:51 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 13:28:47 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m31s744ms).
+2026-01-29 13:31:14 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s501ms).
+2026-01-29 14:10:05 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m50s864ms).
+2026-01-29 14:11:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:11:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:11:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:11:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:11:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:11:45 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:12:06 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:12:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 14:12:06 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 14:12:15 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 1959 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 14:12:15 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 14:12:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 14:12:15 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 14:12:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 14:12:16 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 59 ms. Found 2 JPA repository interfaces.
+2026-01-29 14:12:16 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 14:12:16 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 14:12:16 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 14:12:16 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 14:12:16 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1121 ms
+2026-01-29 14:12:16 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 14:12:16 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 14:12:16 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 14:12:16 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 14:12:16 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 14:12:17 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22a1f0e2
+2026-01-29 14:12:17 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 14:12:17 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 14:12:17 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 14:12:17 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 14:12:17 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:12:17 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 14:12:18 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 14:12:18 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 64fb0b85-9290-43b3-adfa-7b239abb7896
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 14:12:18 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 14:12:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 14:12:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 14:12:18 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.572 seconds (process running for 3.938)
+2026-01-29 14:12:22 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 14:12:22 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 14:12:22 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2026-01-29 14:12:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:12:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:12:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:12:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:12:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:12:22 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:12:34 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:12:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 14:12:34 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 14:12:48 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 2239 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 14:12:48 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 14:12:48 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 14:12:48 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 14:12:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 14:12:49 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2026-01-29 14:12:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 14:12:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 14:12:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 14:12:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 14:12:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 949 ms
+2026-01-29 14:12:49 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 14:12:49 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 14:12:49 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 14:12:49 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 14:12:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 14:12:49 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4dd1a820
+2026-01-29 14:12:49 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 14:12:49 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 14:12:49 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 14:12:50 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 14:12:50 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:12:50 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 14:12:51 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 14:12:51 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 215ec692-c8cc-4b79-bcd8-d13dd4937193
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 14:12:51 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 14:12:51 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 14:12:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 14:12:51 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.121 seconds (process running for 3.554)
+2026-01-29 14:12:53 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 14:12:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 14:12:53 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-01-29 14:12:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:12:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:12:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:12:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:12:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:12:53 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:13:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:13:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:13:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:13:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:13:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:13:27 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:13:46 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:13:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 14:13:46 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 14:13:52 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 21.0.9 with PID 2791 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 14:13:52 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 14:13:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 14:13:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 14:13:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 14:13:53 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2026-01-29 14:13:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 14:13:53 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 14:13:53 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 14:13:53 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 14:13:53 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1103 ms
+2026-01-29 14:13:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 14:13:53 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 14:13:53 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 14:13:53 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 14:13:53 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 14:13:54 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5be4ecc2
+2026-01-29 14:13:54 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 14:13:54 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 14:13:54 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 14:13:54 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 14:13:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:13:54 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 14:13:55 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 14:13:55 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 62c23751-4b66-4105-bdbb-4d115f5b1846
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 14:13:55 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 14:13:55 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 14:13:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 14:13:55 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.521 seconds (process running for 3.954)
+2026-01-29 14:14:05 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 14:14:05 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 14:14:05 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2026-01-29 14:14:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:14:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:14:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:14:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:14:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:14:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:14:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:14:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:14:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:14:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:14:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:14:25 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:14:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:14:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:14:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:14:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:14:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:14:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:14:27 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:14:27 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:14:27 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:14:27 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:14:27 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:14:27 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:14:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:14:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:14:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:14:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:14:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:14:30 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:14:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:14:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:14:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:14:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:14:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:14:39 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:14:43 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:14:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-01-29 14:14:43 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-01-29 14:14:57 [restartedMain] INFO  c.d.DigitalWalletApplication - Starting DigitalWalletApplication using Java 17.0.17 with PID 3341 (/Users/pramodmasanakatti/Downloads/Wallet-service/build/classes/java/main started by pramodmasanakatti in /Users/pramodmasanakatti/Downloads/Wallet-service)
+2026-01-29 14:14:57 [restartedMain] INFO  c.d.DigitalWalletApplication - The following 1 profile is active: "dev"
+2026-01-29 14:14:57 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-29 14:14:57 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-29 14:14:57 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-29 14:14:57 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2026-01-29 14:14:58 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-01-29 14:14:58 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-01-29 14:14:58 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.26]
+2026-01-29 14:14:58 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-01-29 14:14:58 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 872 ms
+2026-01-29 14:14:58 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-29 14:14:58 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-01-29 14:14:58 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-01-29 14:14:58 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-29 14:14:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-29 14:14:58 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5fc3bad2
+2026-01-29 14:14:58 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-29 14:14:58 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MySQL8Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-29 14:14:58 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000026: MySQL8Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+2026-01-29 14:14:59 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-29 14:14:59 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-29 14:14:59 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-29 14:14:59 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-29 14:14:59 [restartedMain] WARN  o.s.b.a.s.s.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 87202353-0d17-4714-950e-6b2563bdcf4a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-01-29 14:14:59 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-01-29 14:15:00 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-01-29 14:15:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-01-29 14:15:00 [restartedMain] INFO  c.d.DigitalWalletApplication - Started DigitalWalletApplication in 3.086 seconds (process running for 3.585)
+2026-01-29 14:15:02 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-29 14:15:02 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-01-29 14:15:02 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2026-01-29 14:15:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:15:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:15:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:15:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:15:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:15:03 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:17:55 [http-nio-8080-exec-5] DEBUG c.d.controller.WalletController - Received wallet creation request: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
+2026-01-29 14:17:55 [http-nio-8080-exec-5] DEBUG c.d.service.WalletServiceImpl - Calling user service to verify user
+2026-01-29 14:17:55 [http-nio-8080-exec-5] DEBUG c.d.service.WalletServiceImpl - Mapping WalletRequestDTO to Wallet entity: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=10, status=ACTIVE)
+2026-01-29 14:17:55 [http-nio-8080-exec-5] DEBUG c.d.service.WalletServiceImpl - Saving Wallet entity: Wallet(walletId=null, userId=1, balance=10, walletType=SAVINGS, createdAt=null, version=null, status=ACTIVE)
+2026-01-29 14:17:55 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,status,user_id,version,wallet_type) values (?,?,?,?,?,?)
+2026-01-29 14:17:55 [http-nio-8080-exec-5] INFO  c.d.service.WalletServiceImpl - Wallet saved successfully with wallletId=6
+2026-01-29 14:17:55 [http-nio-8080-exec-5] INFO  c.d.controller.WalletController - Wallet created successfully: walletId=6
+2026-01-29 14:17:59 [http-nio-8080-exec-6] DEBUG c.d.controller.WalletController - Received wallet creation request: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=1000, status=ACTIVE)
+2026-01-29 14:17:59 [http-nio-8080-exec-6] DEBUG c.d.service.WalletServiceImpl - Calling user service to verify user
+2026-01-29 14:17:59 [http-nio-8080-exec-6] DEBUG c.d.service.WalletServiceImpl - Mapping WalletRequestDTO to Wallet entity: WalletRequestDTO(userId=1, walletType=SAVINGS, balance=1000, status=ACTIVE)
+2026-01-29 14:17:59 [http-nio-8080-exec-6] DEBUG c.d.service.WalletServiceImpl - Saving Wallet entity: Wallet(walletId=null, userId=1, balance=1000, walletType=SAVINGS, createdAt=null, version=null, status=ACTIVE)
+2026-01-29 14:17:59 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - insert into wallets (balance,created_at,status,user_id,version,wallet_type) values (?,?,?,?,?,?)
+2026-01-29 14:17:59 [http-nio-8080-exec-6] INFO  c.d.service.WalletServiceImpl - Wallet saved successfully with wallletId=7
+2026-01-29 14:17:59 [http-nio-8080-exec-6] INFO  c.d.controller.WalletController - Wallet created successfully: walletId=7
+2026-01-29 14:18:10 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:18:17 [http-nio-8080-exec-8] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:18:17 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.digitalwallet.exception.wallet.WalletNotFoundException: Wallet not found with id: 17]
+2026-01-29 14:18:31 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:18:41 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:18:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:18:55 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:19:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:19:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:19:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:19:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:19:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:19:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:19:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:19:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:19:21 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.sender_wallet_id=? or t1_0.wallet_id=? and t1_0.transaction_type<>'CREDIT' and t1_0.status<>'FAILED' and date(t1_0.transaction_date)=?
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:19:35 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:19:57 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select coalesce(sum(t1_0.amount),0) from transactions t1_0 where t1_0.sender_wallet_id=? or t1_0.wallet_id=? and t1_0.transaction_type<>'CREDIT' and t1_0.status<>'FAILED' and date(t1_0.transaction_date)=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:20:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:20:23 [http-nio-8080-exec-10] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:20:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:20:39 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where (t1_0.sender_wallet_id=? or t1_0.receiver_wallet_id=? or t1_0.wallet_id=?) and t1_0.transaction_type=? and t1_0.status=? order by t1_0.transaction_date desc limit ?,?
+2026-01-29 14:20:39 [http-nio-8080-exec-1] WARN  o.s.d.w.c.SpringDataJacksonConfiguration$PageModule$PlainPageSerializationWarning - Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-01-29 14:21:17 [http-nio-8080-exec-3] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0
+2026-01-29 14:21:31 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:21:31 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - update wallets set balance=?,created_at=?,status=?,user_id=?,version=?,wallet_type=? where wallet_id=? and version=?
+2026-01-29 14:21:34 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.external_tx_id=?
+2026-01-29 14:21:34 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select w1_0.wallet_id,w1_0.balance,w1_0.created_at,w1_0.status,w1_0.user_id,w1_0.version,w1_0.wallet_type from wallets w1_0 where w1_0.wallet_id=?
+2026-01-29 14:21:34 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - insert into transactions (amount,external_tx_id,receiver_wallet_id,sender_wallet_id,status,transaction_date,transaction_type,wallet_id) values (?,?,?,?,?,?,?,?)
+2026-01-29 14:21:34 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - select t1_0.transaction_id,t1_0.amount,t1_0.external_tx_id,t1_0.receiver_wallet_id,t1_0.sender_wallet_id,t1_0.status,t1_0.transaction_date,t1_0.transaction_type,t1_0.wallet_id from transactions t1_0 where t1_0.transaction_id=?
+2026-01-29 14:21:34 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - update transactions set amount=?,receiver_wallet_id=?,sender_wallet_id=?,status=?,transaction_date=?,wallet_id=? where transaction_id=?
+2026-01-29 14:21:34 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.digitalwallet.exception.wallet.WalletInactiveException: Your wallet is inactive please activate it]

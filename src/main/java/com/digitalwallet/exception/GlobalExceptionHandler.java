@@ -1,12 +1,21 @@
 package com.digitalwallet.exception;
 
 import com.digitalwallet.dto.response.ErrorResponseDTO;
+import com.digitalwallet.exception.transaction.DuplicateExternalKeyException;
+import com.digitalwallet.exception.transaction.InsufficientFundException;
+import com.digitalwallet.exception.transaction.InvalidTransactionExceptionCustom;
+import com.digitalwallet.exception.transaction.TransactionLimitExceedException;
+import com.digitalwallet.exception.user.DuplicateEmailException;
+import com.digitalwallet.exception.user.UserNotFoundException;
+import com.digitalwallet.exception.wallet.WalletInactiveException;
+import com.digitalwallet.exception.wallet.WalletNotFoundException;
 import jakarta.transaction.InvalidTransactionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -17,7 +26,7 @@ public class GlobalExceptionHandler {
 
 
      // Exception handling for UserNotFound,WalletNotFound
-    @ExceptionHandler({UserNotFoundException.class,WalletNotFoundException.class})
+    @ExceptionHandler({UserNotFoundException.class, WalletNotFoundException.class})
     public ResponseEntity<ErrorResponseDTO> handleResourceNotFoundException(RuntimeException exception) {
         ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
                 LocalDateTime.now(),
@@ -101,6 +110,42 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
     }
 
+   // HTTP client error exception
+    @ExceptionHandler(HttpClientErrorException.class)
+    public ResponseEntity<ErrorResponseDTO> handleHttpClientErrorException(Exception exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
+    }
+
+    // Exception handling for insufficient funds
+    @ExceptionHandler(InsufficientFundException.class)
+    public ResponseEntity<ErrorResponseDTO> handleInsufficientFundException(Exception exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.PAYMENT_REQUIRED.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.PAYMENT_REQUIRED).body(errorResponseDTO);
+    }
+
+    //Exception handling for InvalidTransactionExeptionCustom exception
+    @ExceptionHandler(InvalidTransactionExceptionCustom.class)
+    public ResponseEntity<ErrorResponseDTO> handleInvalidTransactionExceptionCustom(Exception exception) {
+        ErrorResponseDTO errorResponseDTO=new ErrorResponseDTO(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                exception.getMessage(),
+                Map.of()
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponseDTO);
+    }
+
     // Exception handling for other exceptions
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDTO> handleGlobalException(Exception exception) {
@@ -110,6 +155,6 @@ public class GlobalExceptionHandler {
                 exception.getMessage(),
                 Map.of()
         );
-return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponseDTO);
+    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponseDTO);
     }
 }

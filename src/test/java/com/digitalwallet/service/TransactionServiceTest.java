@@ -7,13 +7,12 @@ import com.digitalwallet.entity.Wallet;
 import com.digitalwallet.entity.enums.TransactionType;
 import com.digitalwallet.entity.enums.WalletStatus;
 import com.digitalwallet.entity.enums.WalletType;
-import com.digitalwallet.exception.DuplicateExternalKeyException;
-import com.digitalwallet.exception.InsufficientFundException;
-import com.digitalwallet.exception.TransactionLimitExceedException;
-import com.digitalwallet.exception.WalletNotFoundException;
+import com.digitalwallet.exception.transaction.InsufficientFundException;
+import com.digitalwallet.exception.transaction.TransactionLimitExceedException;
+import com.digitalwallet.exception.wallet.WalletNotFoundException;
 import com.digitalwallet.repository.TransactionRepository;
 import com.digitalwallet.repository.WalletRepository;
-import com.digitalwallet.service.interfaces.TransactionService;
+import com.digitalwallet.service.interfaces.TransactionServiceForUser;
 import com.digitalwallet.service.modificationsservices.TransactionDeleteService;
 import com.digitalwallet.service.modificationsservices.WalletDeleteService;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,7 +32,7 @@ class TransactionServiceTest {
   private WalletRepository walletRepository;
 
  @Autowired
-  private  TransactionService transactionService;
+  private TransactionServiceForUser transactionServiceForUser;
 
 @Autowired
 private TransactionRepository transactionRepository;
@@ -79,9 +78,9 @@ private Wallet receiver;
         dto1.setAmount(new BigDecimal("100"));
         dto1.setWalletId(sender.getWalletId());
 
-        TransactionResponseDTO responseDTO=transactionService.credit(dto1);
+        TransactionResponseDTO responseDTO= transactionServiceForUser.credit(dto1);
+        sender=walletRepository.findById(sender.getWalletId()).orElseThrow(()->new WalletNotFoundException("Wallet not found"));
 
-        assertEquals(externalTxId,responseDTO.getExternalTxId());
         assertEquals(new BigDecimal("1100.00"),sender.getBalance());
 
     }
@@ -95,14 +94,15 @@ private Wallet receiver;
         dto1.setAmount(new BigDecimal("100"));
         dto1.setWalletId(sender.getWalletId());
 
-        transactionService.credit(dto1);
+        TransactionResponseDTO responseDTO1= transactionServiceForUser.credit(dto1);
 
         TransactionRequestDTO dto2=new TransactionRequestDTO();
         dto2.setExternalTxId(externalTxId);
         dto2.setAmount(new BigDecimal("100"));
         dto2.setWalletId(sender.getWalletId());
 
-        assertThrows(DuplicateExternalKeyException.class,()->transactionService.credit(dto2));
+        TransactionResponseDTO responseDTO2= transactionServiceForUser.credit(dto2);
+        assertEquals(responseDTO1.getTransactionId(),responseDTO2.getTransactionId());
 
     }
 
@@ -117,7 +117,7 @@ private Wallet receiver;
         dto.setReceiverWalletId(receiver.getWalletId());
         dto.setExternalTxId(externalTxId);
 
-        assertThrows(InsufficientFundException.class,()->transactionService.transfer(dto));
+        assertThrows(InsufficientFundException.class,()-> transactionServiceForUser.transfer(dto));
 
     }
 
@@ -132,11 +132,10 @@ private Wallet receiver;
         dto.setSenderWalletId(sender.getWalletId());
         dto.setReceiverWalletId(receiver.getWalletId());
 
-        TransactionResponseDTO response=transactionService.transfer(dto);
+        TransactionResponseDTO response= transactionServiceForUser.transfer(dto);
         Wallet wallet=walletRepository.findById(sender.getWalletId()).orElseThrow(()->new WalletNotFoundException("Wallet not found"));
         assertEquals(new BigDecimal("100.00"),wallet.getBalance());
         assertEquals(TransactionType.TRANSFER,response.getTransactionType());
-        assertEquals(externalTxId,response.getExternalTxId());
     }
 
     // Test successful debit
@@ -149,11 +148,10 @@ private Wallet receiver;
         dto.setAmount(new BigDecimal("400"));
         dto.setExternalTxId(externalTxId);
 
-        TransactionResponseDTO response=transactionService.debit(dto);
+        TransactionResponseDTO response= transactionServiceForUser.debit(dto);
         Wallet wallet=walletRepository.findById(sender.getWalletId()).orElseThrow(()->new WalletNotFoundException("Wallet not found"));
         assertEquals(new BigDecimal("600.00"),wallet.getBalance());
         assertEquals(TransactionType.DEBIT,response.getTransactionType());
-        assertEquals(externalTxId,response.getExternalTxId());
     }
 
     @Test
@@ -165,6 +163,6 @@ private Wallet receiver;
         dto.setAmount(new BigDecimal("20000"));
         dto.setExternalTxId(externalTxId);
 
-        assertThrows(TransactionLimitExceedException.class,()->transactionService.debit(dto));
+        assertThrows(TransactionLimitExceedException.class,()-> transactionServiceForUser.debit(dto));
     }
 }

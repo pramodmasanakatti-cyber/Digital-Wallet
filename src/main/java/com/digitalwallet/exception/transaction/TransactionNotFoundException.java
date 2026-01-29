@@ -1,4 +1,4 @@
-package com.digitalwallet.exception;
+package com.digitalwallet.exception.transaction;
 
 public class TransactionNotFoundException extends RuntimeException{
     public TransactionNotFoundException(String message) {

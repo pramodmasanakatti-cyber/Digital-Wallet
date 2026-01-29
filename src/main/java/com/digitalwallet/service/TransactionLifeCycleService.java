@@ -11,20 +11,33 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class TransactionPendingService {
-    public TransactionPendingService(TransactionRepository transactionRepository, TransactionMapper transactionMapper) {
+public class TransactionLifeCycleService {
+
+   private final TransactionRepository transactionRepository;
+   private final TransactionMapper transactionMapper;
+    public TransactionLifeCycleService(TransactionRepository transactionRepository, TransactionMapper transactionMapper) {
         this.transactionRepository = transactionRepository;
         this.transactionMapper = transactionMapper;
     }
 
-    private final TransactionRepository transactionRepository;
-    private final TransactionMapper transactionMapper;
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public Transaction markFailedTransaction(Transaction transaction) {
+        transaction.setStatus(TransactionStatus.FAILED);
+        return transactionRepository.save(transaction);
+    }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public Transaction savePendingTransaction(TransactionRequestDTO transactionRequestDTO, TransactionType transactionType) {
+    public Transaction markPendingTransaction(TransactionRequestDTO transactionRequestDTO, TransactionType transactionType) {
         Transaction transaction=transactionMapper.toEntity(transactionRequestDTO);
         transaction.setStatus(TransactionStatus.PENDING);
         transaction.setTransactionType(transactionType);
         return transactionRepository.save(transaction);
     }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public Transaction markCompletedTransaction(Transaction transaction) {
+        transaction.setStatus(TransactionStatus.COMPLETED);
+        return transactionRepository.save(transaction);
+    }
+
 }

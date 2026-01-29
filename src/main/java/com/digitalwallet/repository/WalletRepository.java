@@ -14,7 +14,6 @@ import java.util.List;
 @Repository
 public interface WalletRepository extends JpaRepository<Wallet,Integer> {
 
-    @Lock(LockModeType.OPTIMISTIC)
     @Query("SELECT w FROM Wallet w WHERE w.userId= :userId")
     List<Wallet> findByUserId(@Param("userId") Integer userId);
 }

@@ -11,7 +11,7 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
     public interface TransactionMapper {
-        @Mapping(source = "amount",target = "amount")
+
         Transaction toEntity(TransactionRequestDTO transactionRequestDTO);
 
         TransactionResponseDTO toDto(Transaction transaction);

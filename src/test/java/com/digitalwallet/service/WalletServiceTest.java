@@ -4,7 +4,7 @@ package com.digitalwallet.service;
 import com.digitalwallet.entity.Wallet;
 import com.digitalwallet.entity.enums.WalletStatus;
 import com.digitalwallet.entity.enums.WalletType;
-import com.digitalwallet.exception.WalletNotFoundException;
+import com.digitalwallet.exception.wallet.WalletNotFoundException;
 import com.digitalwallet.repository.WalletRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -36,6 +35,7 @@ public class WalletServiceTest {
 
     @BeforeEach
     void setUp() {
+        walletRepository.deleteAll();
         wallet=new Wallet();
         wallet.setWalletType(WalletType.SAVINGS);
         wallet.setWalletId(1);

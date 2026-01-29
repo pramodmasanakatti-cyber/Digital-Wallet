@@ -1,4 +1,4 @@
-package com.digitalwallet.exception;
+package com.digitalwallet.exception.user;
 
 public class UserNotFoundException extends RuntimeException {
     public UserNotFoundException(String message) {

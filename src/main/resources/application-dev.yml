@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/Digital_wallet
+    url: jdbc:mysql://localhost:3306/Wallet_service
     username: root
     password: Pramod#8792
     driver-class-name: com.mysql.cj.jdbc.Driver

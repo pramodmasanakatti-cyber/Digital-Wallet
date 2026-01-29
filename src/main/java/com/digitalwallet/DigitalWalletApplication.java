@@ -1,6 +1,5 @@
 package com.digitalwallet;
 
-import com.digitalwallet.repository.TransactionRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

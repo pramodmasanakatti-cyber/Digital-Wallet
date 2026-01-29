@@ -1,14 +1,10 @@
 package com.digitalwallet.entity;
 
 
-import com.digitalwallet.entity.enums.TransactionStatus;
 import com.digitalwallet.entity.enums.WalletStatus;
 import com.digitalwallet.entity.enums.WalletType;
-import com.digitalwallet.exception.InsufficientFundException;
-import com.digitalwallet.exception.InvalidAmountException;
 import com.digitalwallet.validation.annotation.ValidWalletBalance;
 import jakarta.persistence.*;
-import jdk.jfr.Timestamp;
 import lombok.*;
 
 import java.math.BigDecimal;
