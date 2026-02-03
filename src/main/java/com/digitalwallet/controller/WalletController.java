@@ -80,7 +80,4 @@ public class WalletController {
         walletService.inactivateWallet(id);
         return ResponseEntity.status(HttpStatus.OK).body("Wallet inactivated successfully walletId: " + id);
     }
-
-
-
 }

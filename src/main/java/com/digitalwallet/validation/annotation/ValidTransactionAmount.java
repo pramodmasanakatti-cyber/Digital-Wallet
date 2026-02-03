@@ -13,8 +13,8 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD,ElementType.PARAMETER,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidTransactionAmount {
-    String message() default "Transaction amount should be min=0 and max=10000";
-    Class<?>[] groups() default {};
+    String message() default "Transaction amount should be min=1 and max=10000";  // Default error message
+    Class<?>[] groups() default {};    // For conditional validation
     Class<? extends Payload>[] payload() default {};
 
 }

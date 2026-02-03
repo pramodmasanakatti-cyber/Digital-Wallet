@@ -43,6 +43,5 @@ private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
-
     }
 }

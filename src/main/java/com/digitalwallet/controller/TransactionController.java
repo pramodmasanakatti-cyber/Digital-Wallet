@@ -81,7 +81,7 @@ public class TransactionController {
     })
     @GetMapping("/history")
     public Page<TransactionResponseDTO> getHistory(
-            @RequestParam Integer walletId,
+            @RequestParam(required = true)Integer walletId,
             @RequestParam(required = false)TransactionType type,
             @RequestParam(required = false)LocalDateTime from,
             @RequestParam(required = false)LocalDateTime to,

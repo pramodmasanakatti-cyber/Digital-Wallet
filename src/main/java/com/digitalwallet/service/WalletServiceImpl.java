@@ -1,6 +1,7 @@
 package com.digitalwallet.service;
 
 import com.digitalwallet.client.UserClient;
+import com.digitalwallet.client.UserClientImpl;
 import com.digitalwallet.dto.response.WalletResponseDTO;
 import com.digitalwallet.dto.request.WalletRequestDTO;
 import com.digitalwallet.entity.Wallet;
