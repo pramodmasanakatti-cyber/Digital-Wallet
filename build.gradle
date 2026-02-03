@@ -40,7 +40,11 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.30'
     annotationProcessor 'org.projectlombok:lombok:1.18.30'
 
-    implementation 'org.springframework.security:spring-security-crypto'
+    // Password hashing
+    implementation 'org.springframework.security:spring-security-crypto:6.3.1' // or latest
+    implementation 'org.bouncycastle:bcprov-jdk15to18:1.83'
+
+
 
     // 🔐 Spring Security
     implementation 'org.springframework.boot:spring-boot-starter-security'

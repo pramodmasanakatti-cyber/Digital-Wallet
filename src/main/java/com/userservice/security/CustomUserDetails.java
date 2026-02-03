@@ -1,6 +1,5 @@
 package com.userservice.security;
 
-import com.userservice.entity.Role;
 import com.userservice.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;

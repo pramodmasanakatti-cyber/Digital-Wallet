@@ -3,6 +3,7 @@ package com.userservice.controller;
 import com.userservice.dto.request.LoginRequest;
 import com.userservice.dto.response.JwtResponse;
 import com.userservice.security.JwtUtil;
+import com.userservice.service.interfaces.AuthService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -25,12 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "Auth",description = "Authentication management APIs")
 public class AuthController {
 
-    private final JwtUtil jwtUtil;
-    private final AuthenticationManager authenticationManager;
+    private final AuthService authService;
 
-    public AuthController(JwtUtil jwtUtil, AuthenticationManager authenticationManager) {
-        this.jwtUtil = jwtUtil;
-        this.authenticationManager = authenticationManager;
+    public AuthController(AuthService authService) {
+        this.authService = authService;
     }
 
     @Operation(summary = "Login",description="Login with userName and password")
@@ -39,12 +38,6 @@ public class AuthController {
     })
     @PostMapping("/login")
     public ResponseEntity<JwtResponse> login(@Valid  @RequestBody LoginRequest loginRequest) {
-        Authentication authentication=authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword())
-        );
-        UserDetails userDetails=(UserDetails) authentication.getPrincipal();
-        String jwtToken=jwtUtil.generateToken(userDetails);
-        JwtResponse jwtResponse=new JwtResponse(jwtToken);
-        return ResponseEntity.ok(jwtResponse);
+        return ResponseEntity.ok(authService.login(loginRequest));
     }
  }

@@ -9,7 +9,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +35,6 @@ public class JwtUtil {
                 .claim("roles",roles)
                 .signWith(Keys.hmacShaKeyFor(SECRET.getBytes()), SignatureAlgorithm.HS256)
                 .compact();
-
     }
 
     // Validate token
@@ -53,10 +51,20 @@ public class JwtUtil {
     }
 
     private Claims getClaims(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(Keys.hmacShaKeyFor(SECRET.getBytes()))
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
+        Claims claims=null;
+        try {
+            claims = Jwts.parserBuilder()
+                    .setSigningKey(Keys.hmacShaKeyFor(SECRET.getBytes()))
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+        } catch (io.jsonwebtoken.ExpiredJwtException exception) {
+            throw exception;
+        } catch (io.jsonwebtoken.security.SignatureException exception) {
+            throw exception;
+        } catch (Exception exception) {
+            throw exception;
+        }
+        return claims;
     }
 }
