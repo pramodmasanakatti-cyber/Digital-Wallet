@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: User-service
+  profiles:
+    active: dev
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    com.digitalwallet.controller: DEBUG
+    com.digitalwallet.service: DEBUG
+    com.digitalwallet.repository: INFO
+    com.digitalwallet.mapper: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: "logs/application.log"
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger
+    operations-sorter: method
+    tags-sorter: alpha
+
+jwt:
+  secret: ThisIsTheSecretKeyForDigitalWalletProject1234
